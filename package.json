@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/jasmine-node src",
     "start": "node server.js"
   },
   "author": "",
@@ -12,5 +12,10 @@
   "dependencies": {
     "express": "^4.16.2",
     "vash": "^0.12.3"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.1.2"
   }
 }
