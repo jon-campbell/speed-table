@@ -25,15 +25,16 @@ describe('user controller', function() {
       }
     };
 
+    mockRes = {
+      send: sinon.stub(),
+      sendStatus: sinon.stub()
+    };
+
   });
 
   describe('get', function() {
 
     beforeEach(function() {
-
-      mockRes = {
-        send: sinon.stub()
-      };
 
       mockDependencies["./user.repository"].getAll.yields({}, "dummy users");
       mockApp.get.withArgs("/user").yields({}, mockRes);
@@ -81,6 +82,12 @@ describe('user controller', function() {
         name: "name",
         times: []
       }).callCount).toBe(1);
+
+    });
+
+    it('returns 201 when created', function() {
+
+      expect(mockRes.sendStatus.withArgs(201).callCount).toBe(1);
 
     });
 

@@ -17,6 +17,7 @@
         name: req.body.name,
         times: req.body.times
       });
+      res.sendStatus(201);
     });
   };
 
