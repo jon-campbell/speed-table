@@ -6,6 +6,7 @@
   const userController = require("./src/user/user.controller");
 
   app.use(express.static(__dirname + "/public"));
+  app.use(express.json());
 
   app.get("/", function (req, res) {
     res.sendfile("/index.html");

@@ -67,3 +67,9 @@ table {
 .resultsTable .lastColumn {
   border-right:none;
 }
+
+.newUser {
+  margin-right: 20px;
+  padding: 8px;
+  padding-bottom: 40px;
+}
