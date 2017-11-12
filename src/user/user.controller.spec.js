@@ -65,8 +65,7 @@ describe('user controller', function() {
 
       mockReq = {
         body: {
-          name: "name",
-          times: []
+          name: "name"
         }
       };
 
@@ -79,8 +78,7 @@ describe('user controller', function() {
     it('saves user to repository', function() {
 
       expect(mockDependencies["./user.repository"].save.withArgs({
-        name: "name",
-        times: []
+        name: "name"
       }).callCount).toBe(1);
 
     });

@@ -14,8 +14,7 @@
 
     app.post("/user", function(req, res){
       userRepository.save({
-        name: req.body.name,
-        times: req.body.times
+        name: req.body.name
       });
       res.sendStatus(201);
     });
