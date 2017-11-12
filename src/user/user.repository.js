@@ -2,6 +2,7 @@
   "use strict";
 
   userRepository.getAll = getAll;
+  userRepository.save = save;
 
   var data = require('../data');
 
@@ -10,6 +11,12 @@
       db.users.find({}).toArray(function(err, result) {
         callback(err, result);
       });
+    });
+  };
+
+  function save(user) {
+    data.getDb(function(error, db) {
+      db.users.insert(user);
     });
   };
 
