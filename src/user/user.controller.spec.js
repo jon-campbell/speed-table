@@ -12,7 +12,7 @@ describe('user controller', function() {
 
   describe('get', function() {
 
-    it('calls user repository', function() {
+    beforeEach(function() {
 
       mockApp = {
         get: sinon.stub()
@@ -34,7 +34,17 @@ describe('user controller', function() {
 
       userController.init(mockApp);
 
+    });
+
+    it('calls user repository', function() {
+
       expect(mockDependencies["./user.repository"].getAll.callCount).toBe(1);
+
+    });
+
+    it('returns users', function() {
+
+      expect(mockRes.send.withArgs("dummy users").callCount).toBe(1);
 
     });
 

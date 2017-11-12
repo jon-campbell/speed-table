@@ -8,6 +8,7 @@
   function init(app) {
     app.get("/user", function(req, res) {
       userRepository.getAll(function(error, users) {
+        res.send(users);
       });
     });
   };
