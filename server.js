@@ -5,12 +5,10 @@
 
   const userController = require("./src/user/user.controller");
 
-  app.set("view engine", "vash");
-
   app.use(express.static(__dirname + "/public"));
 
   app.get("/", function (req, res) {
-    res.render("index", {title: "Speed Table"});
+    res.sendfile("/index.html");
   });
 
   userController.init(app);

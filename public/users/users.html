@@ -1,0 +1,75 @@
+<h1 class="center red lobster dropBox">{{ viewModel.title }}</h1>
+
+<div class="center">
+  <form ng-submit="viewModel.getUser()">
+    <input required type="search" placeholder="Username"
+           ng-model="viewModel.usernameInput" />
+      <button type="submit">Find User</button>
+    <label class="red"
+         ng-show="viewModel.usernameSearchError">
+      {{ viewModel.usernameSearchError }}
+    </label>
+  </form>
+</div>
+
+<div class="" ng-show="viewModel.user">
+  <div class="clearfix center userInfoContainer">
+    <img class="column borderBlock"
+         title="{{ viewModel.user.name }}"
+         height="160" width="160"
+         ng-src="{{ viewModel.user.avatar_url }}">
+    <div class="column">
+      <h3 class="red name">{{ viewModel.user.name || viewModel.user.login }}</h3>
+      <p>{{ viewModel.user.html_url }}</p>
+    </div>
+    <div class="columnRight borderBlock red lobster">
+      <h2>{{ viewModel.user.public_repos }}</h2>
+      <p>Repos</p>
+    </div>
+  </div>
+
+  <div class="clearfix center">
+    <div class="column resultsTableFilters dropBox">
+      <table>
+        <tr>
+          <td>Sort</td>
+          <td>
+            <select id="repoSortInput"
+                    ng-model="repoSortOrder">
+              <option value="+name">Name</option>
+              <option value="+language">Main Language</option>
+              <option value="-stargazers_count">Stars</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Language</td>
+          <td>
+            <select id="repoLanguageFilter"
+                    ng-model="repoLanguageFilter">
+              <option ng-repeat=""></option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="column resultsTable dropBox">
+      <table>
+        <thead class="red">
+          <tr>
+            <td class="name">Name</td>
+            <td>Main Language</td>
+            <td class="lastColumn">Stars</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="repo in viewModel.user.repos | orderBy:repoSortOrder">
+            <td class="name">{{ repo.name }}</td>
+            <td>{{ repo.language }}</td>
+            <td class="lastColumn">{{ repo.stargazers_count | number }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

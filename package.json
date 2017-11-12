@@ -4,18 +4,27 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node src",
-    "start": "node server.js"
+    "test": "npm run test-node && npm run test-angular",
+    "test-node": "./node_modules/.bin/jasmine-node src",
+    "test-angular": "karma start --single-run",
+    "start": "./node_modules/.bin/nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
     "mongodb": "^2.2.33",
-    "vash": "^0.12.3"
+    "nodemon": "^1.12.1"
   },
   "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-mocks": "^1.6.6",
+    "angular-route": "^1.6.6",
     "jasmine": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-sinon": "^1.0.5",
+    "phantomjs": "^2.1.7",
     "proxyquire": "^1.8.0",
     "sinon": "^4.1.2"
   }
