@@ -8,21 +8,28 @@ describe('user controller', function() {
   var userController,
       mockApp,
       mockDependencies,
+      mockReq,
       mockRes;
+
+  beforeEach(function() {
+
+    mockApp = {
+      get: sinon.stub(),
+      post: sinon.stub()
+    };
+
+    mockDependencies = {
+      "./user.repository": {
+        getAll: sinon.stub(),
+        save: sinon.stub()
+      }
+    };
+
+  });
 
   describe('get', function() {
 
     beforeEach(function() {
-
-      mockApp = {
-        get: sinon.stub()
-      };
-
-      mockDependencies = {
-        "./user.repository": {
-          getAll: sinon.stub()
-        }
-      };
 
       mockRes = {
         send: sinon.stub()
@@ -45,6 +52,35 @@ describe('user controller', function() {
     it('returns users', function() {
 
       expect(mockRes.send.withArgs("dummy users").callCount).toBe(1);
+
+    });
+
+  });
+
+
+  describe('post', function() {
+
+    beforeEach(function() {
+
+      mockReq = {
+        body: {
+          name: "name",
+          times: []
+        }
+      };
+
+      mockApp.post.withArgs("/user").yields(mockReq, mockRes);
+      userController = proxyquire("./user.controller", mockDependencies);
+      userController.init(mockApp);
+
+    });
+
+    it('saves user to repository', function() {
+
+      expect(mockDependencies["./user.repository"].save.withArgs({
+        name: "name",
+        times: []
+      }).callCount).toBe(1);
 
     });
 

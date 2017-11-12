@@ -11,6 +11,13 @@
         res.send(users);
       });
     });
+
+    app.post("/user", function(req, res){
+      userRepository.save({
+        name: req.body.name,
+        times: req.body.times
+      });
+    });
   };
 
 })(module.exports);
