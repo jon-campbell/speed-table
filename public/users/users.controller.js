@@ -8,39 +8,26 @@
   function usersController(usersRepository) {
     var viewModel = this;
 
-    viewModel.title = "Github User Viewer";
-    viewModel.getUser = getUser;
+    viewModel.title = "Runners";
+    viewModel.getUsers = getUsers;
 
     activate();
 
     ///////////
 
     function activate() {
-      viewModel.usernameInput = "angular";
-      getUser();
-    }
+      getUsers();
+    };
 
-    function getUser() {
-      let username = viewModel.usernameInput;
+    function getUsers() {
       usersRepository
-        .getUser(username)
+        .getUsers()
         .then(function(response) {
-          viewModel.user = response;
-          viewModel.usernameSearchError = null;
+          viewModel.users = response;
         })
         .catch(function(response) {
-          viewModel.user = null;
-          viewModel.usernameSearchError = response.data.message;
-        })
-        .then(function(response) {
-          let reposUrl = viewModel.user.repos_url;
-          usersRepository
-            .getRepos(reposUrl)
-            .then(function(response) {
-              viewModel.user.repos = response;
-            });
+          viewModel.users = [];
         });
-    }
-
-  }
+    };
+  };
 })();

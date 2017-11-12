@@ -1,8 +1,8 @@
 body {
   color:#A9A9A9;
   font-size:15pt;
-  font-family:"Roboto Slab";
-  background:url("http://www.departika.com/wp-content/themes/departikaV2/img/background.jpg") repeat;
+  font-family:"BankGothic";
+  background:black;
 }
 
 .container {
@@ -14,18 +14,8 @@ h1 {
   padding-bottom:6px;
 }
 
-.red {
-  color:#FF3B3F;
-}
-
-.lobster {
-  font-family:Lobster, serif;
-}
-
-.dropBox {
-  width:100%;
-  background-color:#CAEBF2;
-  box-shadow:10px 10px 5px #A9A9A9;
+.colored {
+  color:rgb(0, 255, 0);
 }
 
 .center {
@@ -49,31 +39,8 @@ h1 {
  content:"";
 }
 
-.userInfoContainer {
-  margin:32px;
-}
-
-.userInfoContainer div {
-  margin-left:32px;
-}
-
-.borderBlock {
-  width:160px;
-  height:160px;
-  border:2px dashed #A9A9A9;
-  border-radius:25%;
-}
-
 table {
   border-collapse:collapse;
-}
-
-.resultsTableFilters {
-  width: 200px;
-  text-align:left;
-  padding-right:16px;
-  margin-right:16px;
-  margin-bottom:16px;
 }
 
 .resultsTable {
