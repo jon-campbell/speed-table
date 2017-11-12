@@ -8,7 +8,7 @@
   function usersController(usersRepository) {
     var viewModel = this;
 
-    viewModel.user = { name: "" };
+    viewModel.user = {name: ""};
 
     viewModel.title = "Runners";
     viewModel.getUsers = getUsers;

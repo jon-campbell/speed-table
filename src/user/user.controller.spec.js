@@ -58,7 +58,6 @@ describe('user controller', function() {
 
   });
 
-
   describe('post', function() {
 
     beforeEach(function() {

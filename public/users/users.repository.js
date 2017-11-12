@@ -20,10 +20,11 @@
     };
 
     function store(user) {
-      return postHttpPromise("/user", { name: user.name })
+      return postHttpPromise("/user", {name: user.name})
         .then(function (response) {
-          if (response.status !== 201)
+          if (response.status !== 201) {
             throw "User was not created";
+          }
         });
     };
 

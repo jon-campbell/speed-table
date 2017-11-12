@@ -12,7 +12,7 @@
       });
     });
 
-    app.post("/user", function(req, res){
+    app.post("/user", function(req, res) {
       userRepository.save({
         name: req.body.name
       });

@@ -5,6 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "npm run test-node",
+    "lint": "npm run lint-jshint && npm run lint-jscs",
+    "lint-jshint": "./node_modules/.bin/jshint",
+    "lint-jscs": "./node_modules/.bin/jscs .",
     "test-node": "./node_modules/.bin/jasmine-node src",
     "start": "./node_modules/.bin/nodemon server.js"
   },
@@ -18,6 +21,8 @@
   "devDependencies": {
     "jasmine": "^2.8.0",
     "jasmine-node": "^1.14.5",
+    "jscs": "^3.0.7",
+    "jshint": "^2.9.5",
     "proxyquire": "^1.8.0",
     "sinon": "^4.1.2"
   }
